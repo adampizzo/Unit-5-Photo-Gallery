@@ -1,0 +1,111 @@
+//Flex Section
+
+@mixin flex($disp:flex, $dir:null, $wrap:null, $just:null, $ali:null) {
+  display: $disp;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $just;
+  align-content: $ali;
+  @content;
+}
+
+@mixin flex-item($grow:null, $shrink:null, $basis:null, $align-self:null, $justify-self:null) {
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  flex-basis: $basis;
+  align-self: $align-self;
+  justify-self: $justify-self;
+  @content;
+}
+
+
+//Border and Outline Section
+
+@mixin border($width:null, $color-rgb:null, $color-rgba:null, $color-hex:null, $style:null, $radius:null, $side:null){
+  @if $side == 'all' or $side == null {
+    border-width: $width;
+    border-color: $color-rgb $color-rgba $color-hex;
+    border-style: $style;
+  }
+  @else {
+    border#{'-'+$side+'-width'}: $width;
+    border#{'-'+$side+'-color'}: $color-rgb $color-rgba $color-hex;
+    border#{'-'+$side+'-style'}: $style;
+  }
+  border-radius: $radius;  
+  @content;
+}
+
+@mixin shadow($offsetX:null, $offsetY:null, $blur-radius:null, $spread-radius:null, $color:null, $inset:null){
+  box-shadow: ($offsetX $offsetY $blur-radius $spread-radius $color $inset);
+  @content;
+}
+
+@mixin outline($color-rgb:null, $color-rgba:null, $color-hex:null, $offset:null, $style:null, $width:null) {
+  outline:($color-rgb $color-rgba $color-hex $style $width);
+  outline-offset: $offset;
+  @content;
+}
+
+
+//Margin and Padding Section
+
+@mixin margin($top:null, $top-amount:null, $bottom:null, $bottom-amount:null, $left:null, $left-amount:null, $right:null, $right-amount:null, $all:null, $all-amount:null) {
+  @if $top != null or $top == 'true' {
+    margin-top: $top-amount
+  }
+  @if $bottom != null or $bottom == 'true' {
+    margin-bottom: $bottom-amount
+  }
+  @if $left != null or $left == 'true' {
+    margin-left: $left-amount
+  }
+  @if $right != null or $right == 'true' {
+    margin-right: $right-amount
+  }
+  @if $all != null or $all == 'true' {
+    margin: $all-amount;
+  }
+}
+
+@mixin padding($top:null, $top-amount:null, $bottom:null, $bottom-amount:null, $left:null, $left-amount:null, $right:null, $right-amount:null, $all:null, $all-amount:null) {
+  @if $top != null or $top == 'true' {
+    padding-top: $top-amount
+  }
+  @if $bottom != null or $bottom == 'true' {
+    padding-bottom: $bottom-amount
+  }
+  @if $left != null or $left == 'true' {
+    padding-left: $left-amount
+  }
+  @if $right != null or $right == 'true' {
+    padding-right: $right-amount
+  }
+  @if $all != null or $all == 'true' {
+    padding: $all-amount;
+  }
+}
+
+//Media Queries
+
+// Media Queries
+@mixin mq($break) {
+
+  $value: map-get($breakpoints, $break);
+  $sm: map-get($breakpoints, 'sm');
+
+  @if $value == null {
+    @error "'#{$break}' is not a valid breakpoint name.";
+  }
+
+  @else if $value < $sm {
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}

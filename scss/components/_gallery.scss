@@ -1,0 +1,37 @@
+.gallery {
+    &-container{
+    @include flex($dir: column, $just: center, $ali: center);
+    @include padding($left: true, $left-amount: 0);
+    @include mq('sm') {
+        @include flex($dir: row, $just: center, $ali: center, $wrap: wrap); 
+    } 
+    @include flex-item($grow: 1, $shrink: 0, $basis: 45%);        
+    
+    &-item{
+        // @include flex($dir: column, $just: center, $ali: center);
+        // @include mq('sm'){
+        //     @include flex-item($grow: 0, $shrink: 0, $basis: 45%);
+        //     // max-width: 45%;
+        // }
+        // @include mq('med'){
+        //     @include flex-item($grow: 0, $shrink: 0, $basis: 30%);
+        //     // max-width: 30%;
+        // }
+        // @include mq('lrg'){
+        //     @include flex-item($grow: 0, $shrink: 1, $basis: 22%);
+        //     // max-width: 22%;
+        // }
+          
+        list-style: none;        
+        @extend %mar-0-auto;
+        @include flex($just: center);
+        @include flex-item($basis: 25%);
+        
+        
+        
+    }
+
+    }
+}    
+
+

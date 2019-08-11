@@ -1,0 +1,10 @@
+.flex {
+    @include flex($just: center, $ali: center);
+    @include padding($top: 'true', $top-amount: 20px, $bottom: 'true', $bottom-amount: 20px);   
+    &-item {
+        @include flex-item($basis: 50%);        
+        @include border($width: 2px, $style: solid, $color-rgba:rgba(219, 219, 219, .65), $radius: 6px);
+        @include padding($all:'true', $all-amount: 10px);
+    }
+}
+
