@@ -35,7 +35,7 @@
   flex-shrink: 0;
   flex-basis: 45%;
 }
-@media (min-width: 700px) {
+@media (min-width: 600px) {
   .gallery-container {
     display: flex;
     flex-direction: row;
@@ -48,7 +48,26 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  flex-basis: 25%;
+}
+@media (min-width: 600px) {
+  .gallery-container-item {
+    flex-basis: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .gallery-container-item {
+    flex-basis: 33%;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-container-item {
+    flex-basis: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .gallery-container-item {
+    flex-basis: 20%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
