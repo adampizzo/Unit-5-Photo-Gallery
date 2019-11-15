@@ -1,3 +1,10 @@
 %mar-0-auto {
     @include margin(true, 1em, true, 1em, true, auto, true, auto,);
 }
+
+%modal-display {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: $modal-max-width;
+}
