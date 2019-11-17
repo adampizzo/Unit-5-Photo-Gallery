@@ -1,22 +1,60 @@
 // let photos = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 // // const $ul = $('<ul>', {class: "gallery-container"}).append();
-
 let gallery = {
-    name: ["haybale"],
-    location:[],
-    caption: [],
+    id:["haybales", "lake", "canyon", "iceberg", "desert", "fall", "plantation", "dunes", "countrysidelane", "sunset", "cave", "bluebells"],
+    caption:["I love hay bales. Took this snap on a drive through the countryside past some straw fields.", "The lake was so calm today. We had a great view of the snow on the mountains from here.", "I hiked to the top of the mountain and got this picture of the canyon and trees below.", "It was amazing to see an iceberg up close, it was so cold but didn’t snow today.", "The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons.", "Fall is coming, I love when the leaves on the trees start to change color.", "I drove past this plantation yesterday, everything is so green!", "My summer vacation to the Oregon Coast. I love the sandy dunes!", "We enjoyed a quiet stroll down this countryside lane.", "Sunset at the coast! The sky turned a lovely shade of orange.", "I did a tour of a cave today and the view of the landscape below was breathtaking.", "I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in."  ],
+    thumbnailsImgSrc: ["./photos/thumbnails/01.jpg", "./photos/thumbnails/02.jpg", "./photos/thumbnails/03.jpg", "./photos/thumbnails/04.jpg", "./photos/thumbnails/05.jpg", "./photos/thumbnails/06.jpg", "./photos/thumbnails/07.jpg", "./photos/thumbnails/08.jpg", "./photos/thumbnails/09.jpg", "./photos/thumbnails/10.jpg", "./photos/thumbnails/11.jpg", "./photos/thumbnails/12.jpg"],
+    modalImgSrc: ["./photos/01.jpg", "./photos/02.jpg", "./photos/03.jpg", "./photos/04.jpg", "./photos/05.jpg", "./photos/06.jpg", "./photos/07.jpg", "./photos/08.jpg", "./photos/09.jpg", "./photos/10.jpg", "./photos/11.jpg", "./photos/12.jpg"],
+    imgAlt: ["Hay bales in a summer field", "Lake view with mountains in background", "Green trees and canyon area", "Iceberg and glaciers in the distance", "Desert scrubland and mesas", "A scene of the environment during the fall season", "A lush green plantation area", "Dunes at a beach facing away from the water", "A rural road surrounded by nature", "A view of the coast from on high as the sun sets", "A picture from within a cave overlooking a expanse of lush green area below", "A field of bluebells with mountains in the distance"],    
 }
 
-var modal = document.getElementById("modal-box");
-var closeModalLeft = document.getElementById("leftarrow");
-var closeModalRight = document.getElementById("rightarrow");
+for (let i = 0; i < gallery.id.length; i++){
+    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-figure hidden">' + gallery.caption[i] +'</figcaption></figure>');
+    document.getElementById("gallery-container").innerHTML += ('<li class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');    
+    console.log(i);
+}
 
-$(closeModalLeft).click(function() {
-    $(modal).hide();
+
+// let lastUsedImg;
+
+// // var modal = document.getElementById("modal-box");
+// // var closeModalLeft = document.getElementById("leftarrow");
+// // var closeModalRight = document.getElementById("rightarrow");
+
+// $("#left_arrow").hover(function() {
+//     $(".arrow_left_normal").addClass("arrow_left_hidden");
+//     $(".arrow_left_hover").removeClass("arrow_left_hidden");
+//     console.log("test");
+// }, 
+// function() {
+//     $(".arrow_left_normal").removeClass("arrow_left_hidden");
+//     $(".arrow_left_hover").addClass("arrow_left_hidden");
+//     console.log("test removed");
+// });
+
+$("#arrow_left").click(function() {
+    $("#modal-box").addClass("hidden");
+    $(lastUsedImg).addClass("hidden");
+    console.log(lastUsedImg);
 });
 
-$(closeModalRight).click(function() {
-    $(modal).hide();
+$("#arrow_right").click(function() {
+    $("#modal-box").addClass("hidden");
+    $(lastUsedImg).addClass("hidden");
+    console.log(lastUsedImg);
 });
 
+// $("#right_arrow").click(function() {
+//     $(modal).hide();
+// });
 
+
+
+
+$(".haybales").click(function() {
+    $("#haybales img").removeClass("hidden");
+    $("#modal-box").removeClass("hidden");
+    $(".modal-figure haybales").removeClass("hidden");  
+    lastUsedImg = (".haybales");
+    console.log(lastUsedImg);
+});    

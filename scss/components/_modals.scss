@@ -1,5 +1,5 @@
 #modal-box {
-    //display: none;
+    
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -28,7 +28,7 @@
     color: gray; 
 }
 
-#leftarrow {
+#arrow_left {
     position: absolute;
 
     transform: scale(.35);
@@ -56,11 +56,13 @@
     @include mq('xl') {
         transform: scale(1.25);
     }
+
+    @extend %modal-arrow-transition;
 }
 
-#rightarrow {
+#arrow_right {
+    
     position: absolute;
-
     transform: scale(.35);
     bottom: 60%;
     right: 5%;
@@ -86,4 +88,7 @@
     @include mq('xl') {
         transform: scale(1.25);
     }
+
+    @extend %modal-arrow-transition;
+    
 }

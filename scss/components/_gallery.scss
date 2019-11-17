@@ -1,4 +1,4 @@
-.gallery {
+#gallery {
     &-container{
     @include flex($dir: column, $just: center, $ali: center);
     @include padding($left: true, $left-amount: 0);
@@ -6,9 +6,11 @@
         @include flex($dir: row, $just: center, $ali: center, $wrap: wrap); 
     } 
     
-    @include flex-item($grow: 1, $shrink: 0, $basis: 45%);        
+    @include flex-item($grow: 1, $shrink: 0, $basis: 45%);
+    }        
+}
     
-    &-item{
+.gallery-container-item{
         // @include flex($dir: column, $just: center, $ali: center);
         // @include mq('sm'){
         //     @include flex-item($grow: 0, $shrink: 0, $basis: 45%);
@@ -45,8 +47,5 @@
         
         
     }
-
-    }
-}    
 
 

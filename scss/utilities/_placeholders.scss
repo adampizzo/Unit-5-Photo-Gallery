@@ -8,3 +8,10 @@
     width: 80%;
     max-width: $modal-max-width;
 }
+
+%modal-arrow-transition {
+    &:hover{
+        transition: .35s;
+        filter: invert(50%);
+    }
+}
