@@ -9,11 +9,12 @@ let gallery = {
 }
 
 for (let i = 0; i < gallery.id.length; i++){
-    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-figure hidden">' + gallery.caption[i] +'</figcaption></figure>');
-    document.getElementById("gallery-container").innerHTML += ('<li class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');    
+    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-figure ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] +'</figcaption></figure>');
+    document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] +'"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');    
     console.log(i);
 }
 
+$("#modal-box").addClass("hidden");
 
 // let lastUsedImg;
 
@@ -34,14 +35,12 @@ for (let i = 0; i < gallery.id.length; i++){
 
 $("#arrow_left").click(function() {
     $("#modal-box").addClass("hidden");
-    $(lastUsedImg).addClass("hidden");
-    console.log(lastUsedImg);
+    $("#modal-box > figure").children().addClass("hidden");        
 });
 
 $("#arrow_right").click(function() {
     $("#modal-box").addClass("hidden");
-    $(lastUsedImg).addClass("hidden");
-    console.log(lastUsedImg);
+    $("#modal-box > figure").children().addClass("hidden");    
 });
 
 // $("#right_arrow").click(function() {
@@ -51,10 +50,7 @@ $("#arrow_right").click(function() {
 
 
 
-$(".haybales").click(function() {
-    $("#haybales img").removeClass("hidden");
+$("li").click(function() {
     $("#modal-box").removeClass("hidden");
-    $(".modal-figure haybales").removeClass("hidden");  
-    lastUsedImg = (".haybales");
-    console.log(lastUsedImg);
+    $(`#${this.id}-pic`).children().removeClass("hidden");     
 });    

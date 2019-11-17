@@ -28,67 +28,67 @@
     color: gray; 
 }
 
-#arrow_left {
-    position: absolute;
+// #arrow_left {
+//     position: absolute;
 
-    transform: scale(.35);
-    bottom: 60%;
-    left: 5%;
+//     transform: scale(.35);
+//     bottom: 60%;
+//     left: 5%;
 
-    @include mq('sm') {
-        transform: scale(.45);
-        bottom: 30%;
-        left: 10%;
-    }
+//     @include mq('sm') {
+//         transform: scale(.45);
+//         bottom: 30%;
+//         left: 10%;
+//     }
 
-    @include mq('med') {
-        transform: scale(.7);
-        bottom: 30%;
-        left: 10%;
-    }
+//     @include mq('med') {
+//         transform: scale(.7);
+//         bottom: 30%;
+//         left: 10%;
+//     }
 
-    @include mq('lrg') {
-        transform: scale(1);
-        left: 100px;
-        bottom: 50%;
-    }
+//     @include mq('lrg') {
+//         transform: scale(1);
+//         left: 100px;
+//         bottom: 50%;
+//     }
 
-    @include mq('xl') {
-        transform: scale(1.25);
-    }
+//     @include mq('xl') {
+//         transform: scale(1.25);
+//     }
 
-    @extend %modal-arrow-transition;
-}
+//     @extend %modal-arrow-transition;
+// }
 
-#arrow_right {
+// #arrow_right {
     
-    position: absolute;
-    transform: scale(.35);
-    bottom: 60%;
-    right: 5%;
+//     position: absolute;
+//     transform: scale(.35);
+//     bottom: 60%;
+//     right: 5%;
     
-    @include mq('sm') {
-        transform: scale(.45);
-        bottom: 30%;
-        right: 10%;
-    }
+//     @include mq('sm') {
+//         transform: scale(.45);
+//         bottom: 30%;
+//         right: 10%;
+//     }
 
-    @include mq('med') {
-        transform: scale(.7);
-        bottom: 30%;
-        right: 10%;
-    }
+//     @include mq('med') {
+//         transform: scale(.7);
+//         bottom: 30%;
+//         right: 10%;
+//     }
 
-    @include mq('lrg') {
-        transform: scale(1);
-        right: 100px;
-        bottom: 50%;
-    }    
+//     @include mq('lrg') {
+//         transform: scale(1);
+//         right: 100px;
+//         bottom: 50%;
+//     }    
     
-    @include mq('xl') {
-        transform: scale(1.25);
-    }
+//     @include mq('xl') {
+//         transform: scale(1.25);
+//     }
 
-    @extend %modal-arrow-transition;
+//     @extend %modal-arrow-transition;
     
-}
+// }
