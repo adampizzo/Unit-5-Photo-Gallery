@@ -1,13 +1,12 @@
 #modal-box {
     
     position: fixed;
-    z-index: 1;
+    
+    z-index: 3;
     width: 100%;
     height: 100%;
     
-    padding-top: 5%;
-    left: 0;
-    top: 0;
+    
     overflow: auto;
     
     background-color: $modal-color;
@@ -15,80 +14,89 @@
 
 .modal-img {
     @extend %modal-display;
-    //display: block;
+    
     @include border($width: 2px, $style: solid, $color-rgba: $modal-color, $radius: 2px);
+
+
+    @include mq('xl'){
+        max-width: 1200px;
+    };
 }
 
-.modal-figure {
-   
+.modal-fig-cap {
     text-align: center;
     @extend %modal-display;
+    
     @include padding($top: true, $top-amount: 50px, $bottom: true, $bottom-amount:10px);
     font-family: $font-stack;
     color: gray; 
 }
 
-// #arrow_left {
-//     position: absolute;
+.modal-figure {
+    max-width: 100%;
+    margin: 0 auto;
+}
 
-//     transform: scale(.35);
-//     bottom: 60%;
-//     left: 5%;
-
-//     @include mq('sm') {
-//         transform: scale(.45);
-//         bottom: 30%;
-//         left: 10%;
-//     }
-
-//     @include mq('med') {
-//         transform: scale(.7);
-//         bottom: 30%;
-//         left: 10%;
-//     }
-
-//     @include mq('lrg') {
-//         transform: scale(1);
-//         left: 100px;
-//         bottom: 50%;
-//     }
-
-//     @include mq('xl') {
-//         transform: scale(1.25);
-//     }
-
-//     @extend %modal-arrow-transition;
-// }
-
-// #arrow_right {
+#ex_icon{
+    @include position(relative, scale(.35), 2%, $left: 85%);
+    @include margin($left: true, $left-amount: -45px);
     
-//     position: absolute;
-//     transform: scale(.35);
-//     bottom: 60%;
-//     right: 5%;
-    
-//     @include mq('sm') {
-//         transform: scale(.45);
-//         bottom: 30%;
-//         right: 10%;
-//     }
+    @include mq('sm') {        
+        @include position($transform: scale(.45));        
+    };
+    @include mq('med') {
+        @include position($transform: scale(.7));        
+    };
+    @include mq('lrg') {
+        @include position($transform: scale(1));
+    };
+    &:hover {
+        @extend %modal-icon-transition;
+    }
+}
 
-//     @include mq('med') {
-//         transform: scale(.7);
-//         bottom: 30%;
-//         right: 10%;
-//     }
-
-//     @include mq('lrg') {
-//         transform: scale(1);
-//         right: 100px;
-//         bottom: 50%;
-//     }    
-    
-//     @include mq('xl') {
-//         transform: scale(1.25);
-//     }
-
-//     @extend %modal-arrow-transition;
-    
-// }
+#arrow_left {
+    @include position(absolute, scale(.35),$bottom: 50%, $left: 2%);
+  
+    @include mq('sm') {
+        @include position($transform: scale(.45));
+    }
+  
+    @include mq('med') {
+        @include position($transform: scale(.7));
+    }
+  
+    @include mq('lrg'){
+        @include position($transform: scale(1));
+    }
+  
+    @include mq('xl'){
+        @include position($transform: scale(1.2), $bottom: 50%);
+    }
+    &:hover {
+        @extend %modal-icon-transition;
+    }
+  }
+  
+  #arrow_right {
+    @include position(absolute, scale(.35),$bottom: 50%, $right: 2%);
+  
+    @include mq('sm') {
+        @include position($transform: scale(.45));
+    }
+  
+    @include mq('med') {
+        @include position($transform: scale(.7));
+    }
+  
+    @include mq('lrg'){
+        @include position($transform: scale(1));
+    }
+  
+    @include mq('xl'){
+        @include position($transform: scale(1.2), $bottom: 50%);
+    }
+    &:hover {
+        @extend %modal-icon-transition;
+    }
+  }  

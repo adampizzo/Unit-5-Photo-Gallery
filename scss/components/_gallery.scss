@@ -31,19 +31,19 @@
 
         @include mq('sm') {
             @include flex-item($basis: 50%);
-        }
+        };
 
         @include mq('med') {
             @include flex-item($basis: 33%);
-        }
+        };
 
         @include mq('lrg') {
             @include flex-item($basis: 25%);
-        }
+        };
         
         @include mq('xl') {
             @include flex-item($basis: 20%);
-        }
+        };
         
         
     }

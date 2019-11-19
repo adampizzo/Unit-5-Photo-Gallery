@@ -86,8 +86,6 @@
   }
 }
 
-//Media Queries
-
 // Media Queries
 @mixin mq($break) {
 
@@ -107,5 +105,28 @@
     @media (min-width: $value) {
       @content;
     }
+  }
+}
+
+// Positioning
+
+@mixin position($position: null, $transform: null, $top: null, $right: null, $bottom: null, $left: null) {
+  @if $transform != null {
+    transform: $transform;
+  }
+  @if $position != null {
+    position: $position;
+  }
+  @if $top != null {
+    top: $top;
+  }
+  @if $right != null {
+    right: $right;
+  }
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+  @if $left != null {
+    left: $left;
   }
 }

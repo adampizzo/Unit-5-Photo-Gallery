@@ -1,5 +1,3 @@
-// let photos = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-// // const $ul = $('<ul>', {class: "gallery-container"}).append();
 let gallery = {
     id:["haybales", "lake", "canyon", "iceberg", "desert", "fall", "plantation", "dunes", "countrysidelane", "sunset", "cave", "bluebells"],
     caption:["I love hay bales. Took this snap on a drive through the countryside past some straw fields.", "The lake was so calm today. We had a great view of the snow on the mountains from here.", "I hiked to the top of the mountain and got this picture of the canyon and trees below.", "It was amazing to see an iceberg up close, it was so cold but didn’t snow today.", "The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons.", "Fall is coming, I love when the leaves on the trees start to change color.", "I drove past this plantation yesterday, everything is so green!", "My summer vacation to the Oregon Coast. I love the sandy dunes!", "We enjoyed a quiet stroll down this countryside lane.", "Sunset at the coast! The sky turned a lovely shade of orange.", "I did a tour of a cave today and the view of the landscape below was breathtaking.", "I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in."  ],
@@ -9,48 +7,38 @@ let gallery = {
 }
 
 for (let i = 0; i < gallery.id.length; i++){
-    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-figure ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] +'</figcaption></figure>');
+    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] +'</figcaption></figure>');
     document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] +'"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');    
     console.log(i);
 }
 
 $("#modal-box").addClass("hidden");
 
-// let lastUsedImg;
-
-// // var modal = document.getElementById("modal-box");
-// // var closeModalLeft = document.getElementById("leftarrow");
-// // var closeModalRight = document.getElementById("rightarrow");
-
-// $("#left_arrow").hover(function() {
-//     $(".arrow_left_normal").addClass("arrow_left_hidden");
-//     $(".arrow_left_hover").removeClass("arrow_left_hidden");
-//     console.log("test");
-// }, 
-// function() {
-//     $(".arrow_left_normal").removeClass("arrow_left_hidden");
-//     $(".arrow_left_hover").addClass("arrow_left_hidden");
-//     console.log("test removed");
-// });
-
-$("#arrow_left").click(function() {
+$("#ex_icon").click(function() {
     $("#modal-box").addClass("hidden");
     $("#modal-box > figure").children().addClass("hidden");        
 });
-
-$("#arrow_right").click(function() {
-    $("#modal-box").addClass("hidden");
-    $("#modal-box > figure").children().addClass("hidden");    
-});
-
-// $("#right_arrow").click(function() {
-//     $(modal).hide();
-// });
-
-
-
 
 $("li").click(function() {
     $("#modal-box").removeClass("hidden");
     $(`#${this.id}-pic`).children().removeClass("hidden");     
 });    
+
+let input = document.getElementById('mainSearch');
+let galleryContainer = document.getElementById('gallery-container');
+let searchTerm = input.value.toUpperCase();
+let galleryContainerItem = document.getElementsByClassName('gallery-container-item');
+let txtValue, fcap;
+
+for (i = 0; i < galleryContainerItem.length; i++) {
+    fcap = galleryContainerItem[i].getElementsByClassName("modal-fig-cap") [0];
+    console.log(fcap);
+    // txtValue = fcap.textContent || fcap.innerText;
+    // console.log(galleryContainerItem[i]);
+    // if (txtValue.toUpperCase().indexOf(searchTerm) > -1) {
+    //     galleryContainerItem[i].removeClass("hidden");        
+    // }
+    // else {
+    //     galleryContainerItem[i].addClass("hidden");
+    // }
+}

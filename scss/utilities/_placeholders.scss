@@ -9,7 +9,7 @@
     max-width: $modal-max-width;
 }
 
-%modal-arrow-transition {
+%modal-icon-transition {
     &:hover{
         transition: .35s;
         filter: invert(50%);
