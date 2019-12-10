@@ -7,33 +7,35 @@ let gallery = {
 }
 function drawImages() {
     for (let i = 0; i < gallery.id.length; i++) {
-        if ($("#mainSearch").val() == "") {
+        if ($("#mainSearch").val().toLowerCase() == "") {
             document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] + '</figcaption></figure>');
-            document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] + '"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');
-            console.log("not contained");
+            document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] + '"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');            
         }
-        else if (gallery.caption[i].includes($("#mainSearch").val())) {
+        else if (gallery.caption[i].includes($("#mainSearch").val().toLowerCase())) {
             document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] + '</figcaption></figure>');
-            document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] + '"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');
-            console.log("contains");
+            document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] + '"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');            
         }
-
     }
-    // console.log(i);
+    document.getElementById("modal-box").innerHTML += ('<img id="arrow_left"  src="./icon/Simple_Arrow_left.png">\n<img id="arrow_right" src="./icon/Simple_Arrow_right.png">\n<img id="ex_icon" src="./icon/ex_icon.png" alt="The close button">');
 }
 
-$("#ex_icon").click(function () {
+
+$("#ex_icon").on("click", function () {
     $("#modal-box").addClass("hidden");
     $("#modal-box > figure").children().addClass("hidden");
 });
 
- $(".gallery-container-item").click(function () {
+
+
+ $(".gallery-container-item").on("click", function() {
     $("#modal-box").removeClass("hidden");
     $(`#${this.id}-pic`).children().removeClass("hidden");
-});
+ });
 
 drawImages();
 $("#modal-box").addClass("hidden");
+
+
 
 
 // let input = document.getElementById('mainSearch');
@@ -58,10 +60,11 @@ $("#modal-box").addClass("hidden");
 $("#mainSearch").keyup(function () {
     $("#modal-box").empty();
     $("#gallery-container").empty();
-    let input = $(this).val();
-    console.log(input);
+    // let input = $(this).val();
+    // console.log(input);
     drawImages();
 });
+
 
 
 
