@@ -6,6 +6,7 @@ let gallery = {
     imgAlt: ["Hay bales in a summer field", "Lake view with mountains in background", "Green trees and canyon area", "Iceberg and glaciers in the distance", "Desert scrubland and mesas", "A scene of the environment during the fall season", "A lush green plantation area", "Dunes at a beach facing away from the water", "A rural road surrounded by nature", "A view of the coast from on high as the sun sets", "A picture from within a cave overlooking a expanse of lush green area below", "A field of bluebells with mountains in the distance"],
 }
 function drawImages() {
+    document.getElementById("modal-box").innerHTML += ('<img id="arrow_left"  src="./icon/Simple_Arrow_left.png">\n<img id="arrow_right" src="./icon/Simple_Arrow_right.png">\n<img id="ex_icon" src="./icon/ex_icon.png" alt="The close button">');
     for (let i = 0; i < gallery.id.length; i++) {
         if ($("#mainSearch").val().toLowerCase() == "") {
             document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] + '</figcaption></figure>');
@@ -16,21 +17,14 @@ function drawImages() {
             document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] + '"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');            
         }
     }
-    document.getElementById("modal-box").innerHTML += ('<img id="arrow_left"  src="./icon/Simple_Arrow_left.png">\n<img id="arrow_right" src="./icon/Simple_Arrow_right.png">\n<img id="ex_icon" src="./icon/ex_icon.png" alt="The close button">');
 }
 
 
-$("#ex_icon").on("click", function () {
-    $("#modal-box").addClass("hidden");
-    $("#modal-box > figure").children().addClass("hidden");
-});
 
 
 
- $(".gallery-container-item").on("click", function() {
-    $("#modal-box").removeClass("hidden");
-    $(`#${this.id}-pic`).children().removeClass("hidden");
- });
+
+
 
 drawImages();
 $("#modal-box").addClass("hidden");
@@ -65,6 +59,14 @@ $("#mainSearch").keyup(function () {
     drawImages();
 });
 
+$("body").on("click", "#ex_icon", function () {
+    $("#modal-box").addClass("hidden");
+    $("#modal-box > figure").children().addClass("hidden");
+});
 
+$("body").on("click", "li", function() {
+    $("#modal-box").removeClass("hidden");
+    $(`#${this.id}-pic`).children().removeClass("hidden");
+ });
 
 
