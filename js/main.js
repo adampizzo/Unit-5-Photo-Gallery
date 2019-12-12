@@ -7,53 +7,10 @@ let gallery = {
 }
 
 for (let i = 0; i < gallery.id.length; i++){
-    document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] +'</figcaption></figure>');
+    // document.getElementById("modal-box").innerHTML += ('<figure id="' + gallery.id[i] + '-pic" class="modal-figure"><img class="modal-img hidden" src="' + gallery.modalImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"><figcaption class="modal-fig-cap ' + gallery.id[i] + '-fig hidden">' + gallery.caption[i] +'</figcaption></figure>');
     document.getElementById("gallery-container").innerHTML += ('<li id="' + gallery.id[i] +'"class="gallery-container-item ' + gallery.id[i] + '"><img src="' + gallery.thumbnailsImgSrc[i] + '" alt="' + gallery.imgAlt[i] + '"></li>');    
     console.log(i);
 }
 
 $("#modal-box").addClass("hidden");
 
-let activePic;
-
-$("#ex_icon").click(function() {
-    $("#modal-box").addClass("hidden");
-    $("#modal-box > figure").children().addClass("hidden");        
-});
-
-$("li").click(function() {
-    $("#modal-box").removeClass("hidden");
-    $(`#${this.id}-pic`).children().removeClass("hidden");
-    activePic = $(``)     
-});    
-
-$('arrow_left').click(function() {
-    $("")
-    $(this).previousElementSibling.
-})
-
-
-
-
-
-let input = document.getElementById('mainSearch');
-let galleryContainer = document.getElementById('gallery-container');
-let searchTerm = input.value.toUpperCase();
-let galleryContainerItem = document.getElementsByClassName('gallery-container-item');
-let txtValue, fcap;
-
-for (i = 0; i < galleryContainerItem.length; i++) {
-    fcap = galleryContainerItem[i].getElementsByClassName("modal-fig-cap") [0];
-    console.log(fcap);
-    // txtValue = fcap.textContent || fcap.innerText;
-    // console.log(galleryContainerItem[i]);
-    // if (txtValue.toUpperCase().indexOf(searchTerm) > -1) {
-    //     galleryContainerItem[i].removeClass("hidden");        
-    // }
-    // else {
-    //     galleryContainerItem[i].addClass("hidden");
-    // }
-}
-
-console.log(document.getElementById('gallery-container'));
-console.log(document.getElementsByClassName('gallery-container-item')[11].previousElementSibling);
