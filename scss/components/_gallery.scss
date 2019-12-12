@@ -1,15 +1,25 @@
 #gallery {
     &-container{
-    @include flex($dir: column, $just: center, $ali: center);
-    @include padding($left: true, $left-amount: 0);
-    @include mq('sm') {
-        @include flex($dir: row, $just: center, $ali: center, $wrap: wrap);         
-        &::after {
-            content: "";
-            flex: auto;
+        @include flex($dir: column, $just: center, $ali: center);
+        @include padding($left: true, $left-amount: 0);
+        @include flex-width(100%);
+        @include mq('sm') {
+            @include flex($dir: row, $just: center, $ali: center, $wrap: wrap);         
+            @include flex-width(90%, auto);
+            &::after {
+                content: "";
+                flex: auto;
+            }
+        } 
+        @include mq('med') {
+            @include flex-width(80%, auto);
         }
-    } 
-        @include flex-item($grow: 1, $shrink: 0, $basis: 45%);        
+        @include mq('lrg') {
+            @include flex-width(70%, auto);
+        }
+        @include mq('xl') {
+            @include flex-width(60%, auto);
+        }                
     }        
 }
     
@@ -31,7 +41,8 @@
         @include flex-item($basis: 25%);
     };
     
-    @include mq('xl') {
-        @include flex-item($basis: 20%);
-    };    
+    // @include mq('xl') {
+    //     @include flex-item($basis: 20%);
+    // };    
+    // Commented out to keep columns at 4.
 }

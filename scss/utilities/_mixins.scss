@@ -18,6 +18,13 @@
   @content;
 }
 
+@mixin flex-width($width: null, $margin-auto: null) {
+  width: $width;
+  @if $margin-auto != null {
+    margin: 0 auto;
+  }
+}
+
 
 //Border and Outline Section
 
@@ -130,3 +137,5 @@
     left: $left;
   }
 }
+
+
