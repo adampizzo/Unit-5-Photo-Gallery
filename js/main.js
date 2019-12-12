@@ -14,6 +14,8 @@ for (let i = 0; i < gallery.id.length; i++){
 
 $("#modal-box").addClass("hidden");
 
+let activePic;
+
 $("#ex_icon").click(function() {
     $("#modal-box").addClass("hidden");
     $("#modal-box > figure").children().addClass("hidden");        
@@ -21,8 +23,18 @@ $("#ex_icon").click(function() {
 
 $("li").click(function() {
     $("#modal-box").removeClass("hidden");
-    $(`#${this.id}-pic`).children().removeClass("hidden");     
+    $(`#${this.id}-pic`).children().removeClass("hidden");
+    activePic = $(``)     
 });    
+
+$('arrow_left').click(function() {
+    $("")
+    $(this).previousElementSibling.
+})
+
+
+
+
 
 let input = document.getElementById('mainSearch');
 let galleryContainer = document.getElementById('gallery-container');
@@ -42,3 +54,6 @@ for (i = 0; i < galleryContainerItem.length; i++) {
     //     galleryContainerItem[i].addClass("hidden");
     // }
 }
+
+console.log(document.getElementById('gallery-container'));
+console.log(document.getElementsByClassName('gallery-container-item')[11].previousElementSibling);

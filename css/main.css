@@ -173,6 +173,10 @@
     justify-content: center;
     align-content: center;
   }
+  #gallery-container::after {
+    content: "";
+    flex: auto;
+  }
 }
 
 .gallery-container-item {
