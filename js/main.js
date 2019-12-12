@@ -4,7 +4,7 @@ let gallery = {
     thumbnailsImgSrc: ["./photos/thumbnails/01.jpg", "./photos/thumbnails/02.jpg", "./photos/thumbnails/03.jpg", "./photos/thumbnails/04.jpg", "./photos/thumbnails/05.jpg", "./photos/thumbnails/06.jpg", "./photos/thumbnails/07.jpg", "./photos/thumbnails/08.jpg", "./photos/thumbnails/09.jpg", "./photos/thumbnails/10.jpg", "./photos/thumbnails/11.jpg", "./photos/thumbnails/12.jpg"],
     modalImgSrc: ["./photos/01.jpg", "./photos/02.jpg", "./photos/03.jpg", "./photos/04.jpg", "./photos/05.jpg", "./photos/06.jpg", "./photos/07.jpg", "./photos/08.jpg", "./photos/09.jpg", "./photos/10.jpg", "./photos/11.jpg", "./photos/12.jpg"],
     imgAlt: ["Hay bales in a summer field", "Lake view with mountains in background", "Green trees and canyon area", "Iceberg and glaciers in the distance", "Desert scrubland and mesas", "A scene of the environment during the fall season", "A lush green plantation area", "Dunes at a beach facing away from the water", "A rural road surrounded by nature", "A view of the coast from on high as the sun sets", "A picture from within a cave overlooking a expanse of lush green area below", "A field of bluebells with mountains in the distance"],
-}
+};
 
 function drawImages() {
     for (let i = 0; i < gallery.id.length; i++) {
@@ -22,7 +22,5 @@ drawImages();
 $("#mainSearch").keyup(function () {
     $("#modal-box").empty();
     $("#gallery-container").empty();
-    // let input = $(this).val();
-    // console.log(input);
     drawImages();
 });

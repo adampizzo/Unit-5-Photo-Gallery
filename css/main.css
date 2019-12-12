@@ -5,140 +5,10 @@
   margin-right: auto;
 }
 
-.modal-fig-cap, .modal-img {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 800px;
-}
-
-#arrow_right:hover, #arrow_left:hover, #ex_icon:hover {
-  transition: 0.35s;
-  filter: invert(50%);
-}
-
 * {
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
-
-.shown {
-  display: block;
-}
-
-#modal-box {
-  position: fixed;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(19, 19, 19, 0.95);
-}
-
-.modal-img {
-  border-width: 2px;
-  border-color: rgba(19, 19, 19, 0.95);
-  border-style: solid;
-  border-radius: 2px;
-}
-@media (min-width: 1200px) {
-  .modal-img {
-    max-width: 1200px;
-  }
-}
-
-.modal-fig-cap {
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 10px;
-  font-family: "Source Sans Pro", sans-serif;
-  color: gray;
-}
-
-.modal-figure {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-#ex_icon {
-  transform: scale(0.35);
-  position: relative;
-  top: 2%;
-  left: 85%;
-  margin-left: -45px;
-}
-@media (min-width: 600px) {
-  #ex_icon {
-    transform: scale(0.45);
-  }
-}
-@media (min-width: 768px) {
-  #ex_icon {
-    transform: scale(0.7);
-  }
-}
-@media (min-width: 1024px) {
-  #ex_icon {
-    transform: scale(1);
-  }
-}
-#arrow_left {
-  transform: scale(0.35);
-  position: absolute;
-  bottom: 50%;
-  left: 2%;
-}
-@media (min-width: 600px) {
-  #arrow_left {
-    transform: scale(0.45);
-  }
-}
-@media (min-width: 768px) {
-  #arrow_left {
-    transform: scale(0.7);
-  }
-}
-@media (min-width: 1024px) {
-  #arrow_left {
-    transform: scale(1);
-  }
-}
-@media (min-width: 1200px) {
-  #arrow_left {
-    transform: scale(1.2);
-    bottom: 50%;
-  }
-}
-#arrow_right {
-  transform: scale(0.35);
-  position: absolute;
-  right: 2%;
-  bottom: 50%;
-}
-@media (min-width: 600px) {
-  #arrow_right {
-    transform: scale(0.45);
-  }
-}
-@media (min-width: 768px) {
-  #arrow_right {
-    transform: scale(0.7);
-  }
-}
-@media (min-width: 1024px) {
-  #arrow_right {
-    transform: scale(1);
-  }
-}
-@media (min-width: 1200px) {
-  #arrow_right {
-    transform: scale(1.2);
-    bottom: 50%;
-  }
-}
 .flex {
   display: flex;
   justify-content: center;
@@ -172,6 +42,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+  }
+  #gallery-container::after {
+    content: "";
+    flex: auto;
   }
 }
 
